@@ -1,4 +1,17 @@
-import Link from 'next/link';
+import { ExampleLink, type ExampleLinkProps } from '@/components/examples/example-link';
+
+const examples: ExampleLinkProps[] = [
+  {
+    href: '/examples/animated-dock',
+    header: 'Dock Animation',
+    description: 'Simple animated dock using framer motion.'
+  },
+  {
+    href: '/examples/await-component',
+    header: 'Await Component',
+    description: 'Example to explore potential solutions for long running code without blocking the UI.'
+  },
+]
 
 export default function Home() {
   return (
@@ -18,40 +31,11 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <Link
-          href="/examples/animated-dock"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Dock Animation{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Simple animated dock using framer motion.
-          </p>
-        </Link>
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <Link
-          href="/examples/await-component"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Await Component{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Example to explore potential solutions for long running code without blocking the UI.
-          </p>
-        </Link>
+      <div className="mb-32 grid text-center gap-4 lg:gap-12 lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-3 lg:text-left">
+        {examples.map(example => (
+            <ExampleLink {...example} />  
+          ))
+        }       
       </div>
     </main>
   );
