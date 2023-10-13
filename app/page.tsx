@@ -11,6 +11,11 @@ const examples: ExampleLinkProps[] = [
     header: 'Await Component',
     description: 'Example to explore potential solutions for long running code without blocking the UI.'
   },
+  {
+    href: '/examples/multistep-wizard',
+    header: 'Multistep Wizard',
+    description: 'Simple animation with a simple steps wizard updating descriptions.'
+  },
 ]
 
 export default function Home() {
