@@ -1,5 +1,6 @@
+import { LucideProps } from "lucide-react";
 import { Icons } from "./icons";
 
-export function Spinner() {
-    return <Icons.spinner className="animate-spin" />
+export function Spinner({className, ...props}: LucideProps) {
+    return <Icons.spinner className={className ? className : "animate-spin"} {...props} />
 }
