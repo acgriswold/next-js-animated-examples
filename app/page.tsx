@@ -21,6 +21,11 @@ const examples: ExampleLinkProps[] = [
     header: 'Artificial delay',
     description: "Experiments with adding artificial delay. A \"flash of loading state\" that's too fast doesn't inspire confidence that the operation completed successfully. Wrap a `minDelay` for non-optimistic UI patterns"
   },
+  {
+    href: '/examples/spotlight',
+    header: 'Spotlight',
+    description: "Modern UI experiment tracking mouse movement with Neo-futuristic lighting"
+  },
 ]
 
 export default function Home() {
