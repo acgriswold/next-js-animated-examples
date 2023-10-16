@@ -31,6 +31,11 @@ const examples: ExampleLinkProps[] = [
     header: 'Use state query params',
     description: "Handling state through query params benefits tracability, customization, and better discoverability/shareability between users."
   },
+  {
+    href: '/examples/live-charts',
+    header: 'Responsive Line Charts',
+    description: "Charts and graphs using D3 library to create a responsive layout."
+  },
 ]
 
 export default function Home() {
