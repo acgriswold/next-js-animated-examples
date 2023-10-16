@@ -36,6 +36,11 @@ const examples: ExampleLinkProps[] = [
     header: 'Responsive Line Charts',
     description: "Charts and graphs using D3 library to create a responsive layout."
   },
+  {
+    href: '/examples/sonner-toast',
+    header: 'Animated toast',
+    description: "Use sonner third-party toast library which integrates with shadcn/ui non-library."
+  },
 ]
 
 export default function Home() {
