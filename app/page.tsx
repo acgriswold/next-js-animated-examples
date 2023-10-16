@@ -26,6 +26,11 @@ const examples: ExampleLinkProps[] = [
     header: 'Spotlight',
     description: "Modern UI experiment tracking mouse movement with Neo-futuristic lighting"
   },
+  {
+    href: {pathname: '/examples/query-param-use-state', query: { greetings: 'hello', size: 'sm', color: 'black' }},
+    header: 'Use state query params',
+    description: "Handling state through query params benefits tracability, customization, and better discoverability/shareability between users."
+  },
 ]
 
 export default function Home() {
