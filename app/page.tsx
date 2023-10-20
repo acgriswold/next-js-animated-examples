@@ -63,7 +63,7 @@ export default function Home() {
 
       <div className="mb-32 grid text-center gap-4 lg:gap-12 lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-3 lg:text-left">
         {examples.map(example => (
-            <ExampleLink {...example} />  
+            <ExampleLink key={example.header} {...example} />  
           ))
         }       
       </div>

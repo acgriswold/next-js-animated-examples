@@ -18,7 +18,7 @@ export function Step({step, currentStep}: StepProps) {
                 ? "inactive"
                 : "complete")
 
-    }, [currentStep])
+    }, [step, currentStep])
 
     return (
        <motion.div animate={status} className="relative">
