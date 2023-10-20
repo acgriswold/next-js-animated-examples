@@ -41,6 +41,11 @@ const examples: ExampleLinkProps[] = [
     header: 'Animated toast',
     description: "Use sonner third-party toast library which integrates with shadcn/ui non-library."
   },
+  {
+    href: '/examples/ab-testing',
+    header: 'Ab Testing',
+    description: "Simple example of ab testing through code. Migrate to external source for better results!"
+  },
 ]
 
 export default function Home() {
