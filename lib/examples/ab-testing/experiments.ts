@@ -53,7 +53,7 @@ const experiments: Experiment<unknown>[] = [
   ]
 
   
-export type CurrentExperiment = typeof experiments.variants.values;
+export type CurrentExperiment = { className: string };
 
 /**
  * Grabs the expected experiment based on the current user.  Determines whether the user
@@ -66,7 +66,6 @@ export type CurrentExperiment = typeof experiments.variants.values;
  */
 export function getCurrentExperiment<T>() : Experiment<T> {
     const isMatch = (exp: Experiment<any>): exp is Experiment<T> => {
-        type RequiredProps = Array<keyof T>
         const required:T = {}
         const requiredValues = Object.keys(required)
         const testingValues = exp.variants.find(v => v.values)?.values
@@ -97,5 +96,65 @@ export function getCurrentVariant<T>(experiment: Experiment<T>): Variant<T> {
     if (experiment.base?.className && variant.values.className)
       return _.merge({values: experiment.base}, variant, {values: {className: cn(experiment.base.className, variant.values.className)}})
     
+    return _.merge({values: experiment.base}, variant)
+}
+
+
+
+export function getExperimentValues<T>(keyPair: string): T {
+    const isMatch = (values: any): values is T => {
+        const required:T = {}
+        const requiredValues = Object.keys(required)
+
+        return requiredValues.every(prop => values[prop] !== undefined);
+    }
+
+    const [experimentKey, variantKeyString] = keyPair.split(".")
+    const variantKey = parseInt(variantKeyString);
+
+    const experiment = experiments.find(e => e.id === experimentKey)
+    if (!experiment)
+        throw new Error(`🚨: no experiment found for key: ${experimentKey}`)
+
+    const variant = experiment.variants.find(v => v.id === variantKey)
+    if (!variant)
+        throw new Error(`🚨: no variant found for key ${variantKey} found on experiment: ${experimentKey}`)
+
+    if (!isMatch(variant.values))
+      throw new Error(`🚨: no matching type for values try ${typeof variant.values}`)
+
+    if (experiment.base?.className && variant.values.className)
+      return _.merge(experiment.base, variant.values, {className: cn(experiment.base.className, variant.values.className)})
+    
+    return _.merge(experiment.base, variant.values)
+}
+
+
+
+export function getExperimentVariant<T>(keyPair: string): T {
+  const isMatch = (values: any): values is T => {
+      const required:T = {}
+      const requiredValues = Object.keys(required)
+
+      return requiredValues.every(prop => values[prop] !== undefined);
+  }
+
+  const [experimentKey, variantKeyString] = keyPair.split(".")
+  const variantKey = parseInt(variantKeyString);
+
+  const experiment = experiments.find(e => e.id === experimentKey)
+  if (!experiment)
+      throw new Error(`🚨: no experiment found for key: ${experimentKey}`)
+
+  const variant = experiment.variants.find(v => v.id === variantKey)
+  if (!variant)
+      throw new Error(`🚨: no variant found for key ${variantKey} found on experiment: ${experimentKey}`)
+
+  if (!isMatch(variant.values))
+    throw new Error(`🚨: no matching type for values try ${typeof variant.values}`)
+
+  if (experiment.base?.className && variant.values.className)
+    return _.merge({values: experiment.base}, variant, {values: {className: cn(experiment.base.className, variant.values.className)}})
+  
     return _.merge({values: experiment.base}, variant)
 }
