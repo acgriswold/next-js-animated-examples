@@ -3,10 +3,14 @@
 import { Log } from "@/components/ui/log";
 import { config } from "@/lib/examples/ab-testing/config";
 import { CurrentExperiment, getExperimentValues } from "@/lib/examples/ab-testing/experiments";
-import { getCookie, deleteCookie } from "cookies-next";
+
+import Cookies from 'js-cookie'
+import { useRouter } from "next/navigation"
 
 export function ExperimentButton() {
-    const cookie = getCookie(config.AB_TESTING_COOKIE_NAME)
+    const router = useRouter()
+
+    const cookie = Cookies.get(config.AB_TESTING_COOKIE_NAME)
     if (!cookie)
         return <>no cookie set</>
 
@@ -18,7 +22,12 @@ export function ExperimentButton() {
                 <Log value={values}></Log>
             </div>
 
-            <button {...values} onClick={() => deleteCookie(config.AB_TESTING_COOKIE_NAME)}>Reset cookie</button>
+            <button {...values} onClick={() => {
+                    Cookies.remove(config.AB_TESTING_COOKIE_NAME)
+                    router.refresh()
+                }}>
+                Reset cookie
+            </button>
         </>
     )
 }

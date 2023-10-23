@@ -131,12 +131,12 @@ export function getExperimentValues<T>(keyPair: string): T {
 
 
 
-export function getExperimentVariant<T>(keyPair: string): T {
-  const isMatch = (values: any): values is T => {
+export function getExperimentVariant<T>(keyPair: string): Variant<T> {
+  const isMatch = (variant: Variant<any>): variant is Variant<T> => {
       const required:T = {}
       const requiredValues = Object.keys(required)
 
-      return requiredValues.every(prop => values[prop] !== undefined);
+      return requiredValues.every(prop => variant.values[prop] !== undefined);
   }
 
   const [experimentKey, variantKeyString] = keyPair.split(".")
@@ -150,7 +150,7 @@ export function getExperimentVariant<T>(keyPair: string): T {
   if (!variant)
       throw new Error(`🚨: no variant found for key ${variantKey} found on experiment: ${experimentKey}`)
 
-  if (!isMatch(variant.values))
+  if (!isMatch(variant))
     throw new Error(`🚨: no matching type for values try ${typeof variant.values}`)
 
   if (experiment.base?.className && variant.values.className)
