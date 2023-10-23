@@ -8,7 +8,7 @@ import Cookies from 'js-cookie'
 export default function ExperimentCookies() {
     const cookie = Cookies.get(config.AB_TESTING_COOKIE_NAME)
     if (!cookie)
-        throw new Error("no cookie is set");
+        return <>no cookie set</>
 
     const variant = getExperimentVariant(cookie)
 
