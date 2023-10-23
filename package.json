@@ -43,5 +43,8 @@
   "bugs": {
     "url": "https://github.com/acgriswold/next-js-animated-examples/issues"
   },
-  "homepage": "https://github.com/acgriswold/next-js-animated-examples#readme"
+  "homepage": "https://github.com/acgriswold/next-js-animated-examples#readme",
+  "devDependencies": {
+    "@types/lodash": "^4.14.200"
+  }
 }
