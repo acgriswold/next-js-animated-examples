@@ -46,6 +46,11 @@ const examples: ExampleLinkProps[] = [
     header: 'Ab Testing',
     description: "Simple example of ab testing through code. Migrate to external source for better results!"
   },
+  {
+    href: '/examples/interactive-calendar',
+    header: 'Interactive Calendar',
+    description: "Calendar based on the Tailwind UI example, with working dates and more."
+  },
 ]
 
 export default function Home() {
