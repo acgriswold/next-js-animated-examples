@@ -5,7 +5,9 @@ import {
     Dot,
     ChevronLeft,
     ChevronRight,
-    ChevronDown
+    ChevronDown,
+    PictureInPicture,
+    Image
 } from "lucide-react"
 
 const themeColor = "black"
@@ -31,5 +33,8 @@ export const Icons = {
         meetingEdit: (props: LucideProps) => {
             return <ChevronDown {...{fill: themeColor, width: themeSize, height: themeSize, ...props}} />
         },
-    }
+    },
+    dropImage: (props: LucideProps) => {
+        return <Image {...{fill: themeColor, width: themeSize, height: themeSize, ...props}} />
+    },
 }

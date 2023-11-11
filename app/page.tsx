@@ -51,6 +51,11 @@ const examples: ExampleLinkProps[] = [
     header: 'Interactive Calendar',
     description: "Calendar based on the Tailwind UI example, with working dates and more."
   },
+  {
+    href: '/examples/file-upload',
+    header: 'Drag & drop files',
+    description: "Simple typescript and tailwind css file upload."
+  },
 ]
 
 export default function Home() {
