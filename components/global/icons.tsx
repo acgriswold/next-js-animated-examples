@@ -7,7 +7,9 @@ import {
     ChevronRight,
     ChevronDown,
     PictureInPicture,
-    Image
+    Image,
+    Delete,
+    X
 } from "lucide-react"
 
 const themeColor = "black"
@@ -36,5 +38,8 @@ export const Icons = {
     },
     dropImage: (props: LucideProps) => {
         return <Image {...{fill: themeColor, width: themeSize, height: themeSize, ...props}} />
+    },
+    delete: (props: LucideProps) => {
+        return <X {...{fill: themeColor, width: themeSize, height: themeSize, ...props}} />
     },
 }
