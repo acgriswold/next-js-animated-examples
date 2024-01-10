@@ -2,7 +2,8 @@
 
 import { sleep } from "@/lib/utils/timing"
 import { randomInt } from "d3"
-import { Toaster, toast } from "sonner"
+import { toast } from "sonner"
+import { Toaster } from "@/components/ui/sonner"
 
 export default function SonnerToast() {
     const numberGenerator = randomInt(5);
