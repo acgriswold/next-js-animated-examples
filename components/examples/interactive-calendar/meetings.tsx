@@ -1,5 +1,5 @@
 import { Icons } from "@/components/global/icons"
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils/cn"
 import { Menu, Transition } from "@headlessui/react"
 import { format } from "date-fns"
 import { Fragment } from "react"

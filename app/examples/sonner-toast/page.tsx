@@ -1,6 +1,6 @@
 "use client"
 
-import { sleep } from "@/lib/utils"
+import { sleep } from "@/lib/utils/timing"
 import { randomInt } from "d3"
 import { Toaster, toast } from "sonner"
 

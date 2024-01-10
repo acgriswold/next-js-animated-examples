@@ -4,7 +4,7 @@ import { Suspense } from "react";
 import { Await } from "@/components/examples/await";
 import { Spinner } from "@/components/global/spinner";
 
-import { sleep } from "@/lib/utils";
+import { sleep } from "@/lib/utils/timing";
 
 export default function AwaitComponentExample() {
     async function longRunningFunction() : Promise<number> {

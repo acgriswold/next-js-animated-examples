@@ -1,6 +1,6 @@
 import * as _ from "lodash"
 
-import { cn } from '../../utils'
+import { cn } from '@/lib/utils/cn'
 
 export type Variant<T> = {
     name: string,

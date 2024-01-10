@@ -5,7 +5,7 @@ import { useState } from "react"
 import { add, eachDayOfInterval, endOfMonth, endOfWeek, format, getDay, isEqual, isSameDay, isSameMonth, isToday, parse, parseISO, startOfToday, startOfWeek } from "date-fns"
 
 import { Icons } from "@/components/global/icons"
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils/cn"
 
 import { Meeting } from "./meetings"
 import { mockMeetings } from '@/lib/examples/interactive-calendar/mock-meetings'

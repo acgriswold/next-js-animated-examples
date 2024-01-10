@@ -1,6 +1,6 @@
 "use client"
 
-import { minDelay, sleep } from "@/lib/utils";
+import { minDelay, sleep } from "@/lib/utils/timing";
 import { FormEvent, useState } from "react";
 import { Spinner } from "../global/spinner";
 
