@@ -6,13 +6,13 @@ import { toast } from "sonner"
 import { Toaster } from "@/components/ui/sonner"
 
 export default function SonnerToast() {
-    const numberGenerator = randomInt(5);
+    const numberGenerator = randomInt(3);
 
     const sleepOrError = async () => {
-        const potentiallyFour = numberGenerator()
+        const potentiallyTwo = numberGenerator()
         await sleep(1000);
 
-        if (potentiallyFour === 3)
+        if (potentiallyTwo === 2)
             throw new Error('something bad happened')
 
         await sleep(400)
@@ -21,10 +21,10 @@ export default function SonnerToast() {
     const handlePublish = () => {
         toast.promise(sleepOrError(), {
             loading: "publishing...",
-            success: (data) => {
-                return `${data} toast has been added`
+            success: () => {
+                return `toast has been added successfully`
             },
-            error: 'error'
+            error: 'an unpredicted error occurred...'
         })
     }
 
